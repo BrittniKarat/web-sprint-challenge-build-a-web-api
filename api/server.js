@@ -22,7 +22,7 @@ server.use('*', (req, res) => {
 
 server.use((err, req, res, next) => {
     console.log('DEATH')
-    res.status(500).json({message: ` You've encountered the following error: *** ${err.message} ***`})
+    res.status(err.status || 500).json({message: ` Error: ${err.message}`})
 })
 
 module.exports = server;

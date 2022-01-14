@@ -1,7 +1,7 @@
 // Write your "projects" router here!
 const express = require('express')
 const router = express.Router()
-
+const { validateId } = require('./projects-middleware')
 const Projects = require('./projects-model')
 
 router.get('/', async (req, res, next) => {
@@ -13,11 +13,48 @@ router.get('/', async (req, res, next) => {
     }
 })
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', validateId, async (req, res, next) => {
     try {
-        const project = await Projects.get(req.params.id)
-        console.log("this worked", project)
+        const project = await Projects.get(req.validId.id)
         res.status(200).json(project)  
+    } catch (err)
+     {
+        next(err)
+    }
+})
+
+router.post('/', async (req, res, next) => {
+    try {
+        const newProject = await Projects.insert(req.body)
+        res.status(200).json(newProject) 
+    } catch (err) {
+        next(err)
+    }
+})
+
+router.put('/:id', validateId, async (req, res, next) => {
+    try {
+        const updated = await Projects.update(req.validId.id, req.body)
+        res.status(200).json(updated) 
+    } catch (err) {
+        next(err)
+    }
+})
+
+router.delete('/:id', validateId, async (req, res, next) => {
+    try {
+        await Projects.remove(req.validId.id)
+        res.status(200).json({ message: 'Action successful'})
+    } catch (err) {
+        next(err)
+    }
+})
+
+router.get('/:id/actions', validateId, async (req, res, next) => {
+    try {
+        const project = await Projects.get(req.validId.id)
+        const actions = project.actions
+        res.status(200).json(actions) 
     } catch (err) {
         next(err)
     }
