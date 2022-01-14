@@ -5,7 +5,6 @@ const router = express.Router()
 const Projects = require('./projects-model')
 
 router.get('/', async (req, res, next) => {
-    console.log('is it even trying?')
     try {
         const projects = await Projects.get()
         res.status(200).json(projects)
@@ -14,5 +13,14 @@ router.get('/', async (req, res, next) => {
     }
 })
 
+router.get('/:id', async (req, res, next) => {
+    try {
+        const project = await Projects.get(req.params.id)
+        console.log("this worked", project)
+        res.status(200).json(project)  
+    } catch (err) {
+        next(err)
+    }
+})
 
 module.exports = router
