@@ -1,4 +1,3 @@
-// add middlewares here related to projects
 const Projects = require('./projects-model')
 
 const validateId = async (req, res, next) => {
@@ -14,7 +13,6 @@ const validateId = async (req, res, next) => {
         next(err)
     }
 }
-// name, description, completed, actions, project_id
 
 const validatePost = (req, res, next) => {
     try {
@@ -29,7 +27,6 @@ const validatePost = (req, res, next) => {
 }
 
 const containsCompleted = (req, res, next) => {
-    console.log(req.body.completed)
         if(req.body.completed || req.body.completed === false){
             next()
         } else {
@@ -37,4 +34,4 @@ const containsCompleted = (req, res, next) => {
         }
 }
 
-module.exports = { validateId, validatePost, containsCompleted, }
+module.exports = { validateId, validatePost, containsCompleted }
