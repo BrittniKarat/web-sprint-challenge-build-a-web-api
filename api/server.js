@@ -18,7 +18,6 @@ server.use('*', (req, res) => {
 })
 
 server.use((err, req, res, next) => {
-    console.log('DEATH')
     res.status(err.status || 500).json({message: ` Error: ${err.message}`})
 })
 
