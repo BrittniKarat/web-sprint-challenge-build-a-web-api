@@ -147,18 +147,18 @@ We have provided test data for all the resources.
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
--Node.js was created to be able to use js in both  writing client and server code. 
--Express is a specific node module that's a framework of node that helps manage servers and routes.
+  -Node.js was created to be able to use js in both  writing client and server code. 
+  -Express is a specific node module that's a framework of node that helps manage servers and routes.
 
 1. Understand and explain the use of Middleware.
-  Middleware are functions that we use (sometimes we make them, too) to perform specific tasks.
+  -Middleware are functions that we use (sometimes we make them, too) to perform specific tasks.
 
 1. The basic principles of the REST architectural style.
-  Everything is a resource that is accessible via a unique URI. Resources can have multiple representations. They communicate over a stateless HTTP and are managed via HTTP methods.
+  - Everything is a resource that is accessible via a unique URI. Resources can have multiple representations. They communicate over a stateless HTTP and are managed via HTTP methods.
 
 1. Understand and explain the use of Express Routers.
-  Express routers exist inside an express application to help organize separate pieces that can be used together.
+  -Express routers exist inside an express application to help organize separate pieces that can be used together.
 
 
 1. Describe tooling used to manually test the correctness of an API.
-There are plenty. Some main tools are Postman, HTTPie, Thunder Client, and even Chrome. They allow you to check status codes, content, response headers/methods/bodies/etc, and more in one place to make testing and debugging easier
+  -There are plenty. Some main tools are Postman, HTTPie, Thunder Client, and even Chrome. They allow you to check status codes, content, response headers/methods/bodies/etc, and more in one place to make testing and debugging easier
